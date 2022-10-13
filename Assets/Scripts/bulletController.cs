@@ -18,4 +18,14 @@ public class bulletController : MonoBehaviour
     {
         
     }
+
+    //Detectamos si algo entra en colision con el asteroide
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.tag == "Asteroid")
+        {
+            collision.gameObject.GetComponent<asteroidControler>().Muerte();
+            Destroy(gameObject);
+        }
+    }
 }

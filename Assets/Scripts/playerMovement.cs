@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class playerMovement : MonoBehaviour
 {
@@ -10,10 +11,16 @@ public class playerMovement : MonoBehaviour
     //Variables del movimiento
     public float speed = 10;
     public float rotationSpeed = 10;
+
+    //Variable tiempo destrucción laser
+    public float laserdestroy;
     
     //Variable del laser
     public GameObject Laser;
-    
+
+    //Variable del Empty desde donde saldra el laser
+    public GameObject Trigger;
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -44,7 +51,13 @@ public class playerMovement : MonoBehaviour
         //Disparo del laser
         if (Input.GetButtonDown("Jump"))
         {
-            Instantiate(Laser);
+            GameObject temp = Instantiate(Laser, Trigger.transform.position, transform.rotation);
+            Destroy(temp, laserdestroy);
         }
+    }
+
+    public void Muerte()
+    {
+        //Destroy(gameObject);
     }
 }

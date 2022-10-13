@@ -5,8 +5,8 @@ using UnityEngine;
 public class teleporter : MonoBehaviour
 {
 
-    public float limiteX = 10;
-    public float limiteY = 6;
+    public float limiteX = 9;
+    public float limiteY = 5;
     // Start is called before the first frame update
     void Start()
     {
