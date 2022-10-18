@@ -17,6 +17,7 @@ public class asteroidControler : MonoBehaviour
         Vector2 direccion = new Vector2(Random.Range(-1f, 1f), Random.Range(-1f, 1f));
         direccion = direccion * Random.Range(speed_min, speed_max);
         rb.AddForce(direccion);
+        manager.asteroides += 1;
     }
 
     
@@ -39,7 +40,8 @@ public class asteroidControler : MonoBehaviour
             temp2.GetComponent<asteroidControler>().manager = manager;
             temp2.transform.localScale = transform.localScale * 0.5f;
         }
-
+        gameManager.instance.puntuacion += 100;
+        manager.asteroides -= 1;
         Destroy(gameObject);
     }
     private void OnTriggerEnter2D(Collider2D collision)

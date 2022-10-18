@@ -5,6 +5,7 @@ using UnityEngine;
 public class asteroidManager : MonoBehaviour
 {
     //Variables para la velocidad del asteoide y su cantidad
+    public int asteroides;
     public int asteroides_min = 2;
     public int asteroides_max = 8;
     public float limitX = 10;
@@ -12,6 +13,22 @@ public class asteroidManager : MonoBehaviour
     public GameObject asteroide;
 
     void Start()
+    {
+        CrearAteroides();
+    }
+
+
+    void Update()
+    {
+        if(asteroides <= 0)
+        {
+            asteroides_min += 2;
+            asteroides_max += 2;
+            CrearAteroides();
+        }
+    }
+
+    void CrearAteroides()
     {
         int asteroides = Random.Range(asteroides_min, asteroides_max);
 
@@ -24,11 +41,5 @@ public class asteroidManager : MonoBehaviour
             GameObject temp = Instantiate(asteroide, posicion, Quaternion.Euler(rotacion));
             temp.GetComponent<asteroidControler>().manager = this;
         }
-    }
-
-
-    void Update()
-    {
-        
     }
 }

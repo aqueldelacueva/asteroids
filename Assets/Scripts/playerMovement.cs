@@ -62,8 +62,15 @@ public class playerMovement : MonoBehaviour
 
     public void Muerte()
     {
-        anim.SetBool("Death", true);
+        gameManager.instance.vidas -= 1;
+        transform.position = new Vector3(0, 0, 0);
+        rb.velocity = new Vector2(0, 0);
+        //anim.SetBool("Death", true);
+        if (gameManager.instance.vidas <= 0)
+        {
         Destroy(gameObject, 1.2f);
+            Time.timeScale = 0;
+        }
         
     }
 }

@@ -31,6 +31,7 @@ public class enemyShip : MonoBehaviour
 
     void Update()
     {
+        //Temporizador, si llega a los segundos indicados en "Timer" dispara aleatoriamente
         time += Time.deltaTime;
         if (time >= timer)
         {
@@ -49,6 +50,7 @@ public class enemyShip : MonoBehaviour
     }
     public void Muerte()
     {
+        gameManager.instance.puntuacion += 500;
         anim.SetBool("Death", true);
         Destroy(gameObject, 1f);
     }

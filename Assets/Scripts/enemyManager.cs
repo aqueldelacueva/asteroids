@@ -25,7 +25,7 @@ public class enemyManager : MonoBehaviour
     {
         time += Time.deltaTime;
 
-        if (time >= timer)
+        if (time >= timer & gameManager.instance.puntuacion >= 1000)
         {
             Vector3 posicion = new Vector3(Random.Range(-limitX, limitX), Random.Range(-limitY, limitY));
             Vector3 rotacion = new Vector3(0, 0, 0);
