@@ -137,11 +137,10 @@ GameObject:
   - component: {fileID: 443826155}
   - component: {fileID: 443826156}
   - component: {fileID: 443826157}
-  - component: {fileID: 443826158}
   - component: {fileID: 443826159}
   m_Layer: 0
   m_Name: Ship
-  m_TagString: Untagged
+  m_TagString: Ship
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -161,7 +160,7 @@ MonoBehaviour:
   speed: 250
   rotationSpeed: -250
   laserdestroy: 2
-  Laser: {fileID: 4948626738093209383, guid: 2e6628604ac14f848a1e1a5fd1c8577c, type: 3}
+  Laser: {fileID: 4507385369688227058, guid: 34e3c05d852b08545a29ad20c3450b5a, type: 3}
   Trigger: {fileID: 1503062106}
 --- !u!212 &443826153
 SpriteRenderer:
@@ -286,19 +285,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   limiteX: 9.3
   limiteY: 5
---- !u!114 &443826158
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 443826151}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c5bdf44134928c643b072a550473f25b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 10
 --- !u!58 &443826159
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -351,7 +337,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0, g: 0, b: 0.02745098, a: 0}
+  m_BackGroundColor: {r: 0, g: 0, b: 0, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -398,6 +384,55 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1041952126
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1041952128}
+  - component: {fileID: 1041952127}
+  m_Layer: 0
+  m_Name: Enemy
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1041952127
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1041952126}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 880aa3c7bce53c14b9e80b3f2e3b6c75, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawner: {fileID: 5689354454683567966, guid: 87563b65dde07704f9e01bf01a27f871, type: 3}
+  timer: 2
+  time: 0
+  speed: 0
+  rotacion: 0
+--- !u!4 &1041952128
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1041952126}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 2.1562364, y: 0.6882433, z: 0.097328134}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1503062106
 GameObject:
@@ -463,7 +498,7 @@ MonoBehaviour:
   asteroides_max: 8
   limitX: 10
   limitY: 6
-  asteroide: {fileID: 3321119107180820715, guid: 2df2cfb796f43544eaae57147d3b41d5, type: 3}
+  asteroide: {fileID: 5440192614576346258, guid: 8480a554a5cffc2478dfe99af8021a9e, type: 3}
 --- !u!4 &1909692887
 Transform:
   m_ObjectHideFlags: 0

@@ -1,5 +1,7 @@
+using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -21,8 +23,10 @@ public class playerMovement : MonoBehaviour
     //Variable del Empty desde donde saldra el laser
     public GameObject Trigger;
 
+
     void Start()
     {
+        
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
     }
@@ -30,19 +34,19 @@ public class playerMovement : MonoBehaviour
     
     void Update()
     {
-        //Movimiento de la nave
-        float vertical = Input.GetAxis("Vertical");
-        if (vertical > 0)
-        {
-            Vector3 movimiento = new Vector3(0, vertical);
-            rb.AddForce(transform.up * vertical * speed * Time.deltaTime);
-            anim.SetBool("Impulsing", true);
-        }
-        else
-        {
-            //Parar animación cuando no hay movimiento
-            anim.SetBool("Impulsing", false);
-        }
+            //Movimiento de la nave
+            float vertical = Input.GetAxis("Vertical");
+            if (vertical > 0)
+            {
+                Vector3 movimiento = new Vector3(0, vertical);
+                rb.AddForce(transform.up * vertical * speed * Time.deltaTime);
+                anim.SetBool("Impulsing", true);
+            }
+            else
+            {
+                //Parar animación cuando no hay movimiento
+                anim.SetBool("Impulsing", false);
+            }
 
         //Rotación de la nave (Usamos Euler Angles para utilizar de 0 a 365)
         float horizontal = Input.GetAxis("Horizontal");
@@ -58,6 +62,8 @@ public class playerMovement : MonoBehaviour
 
     public void Muerte()
     {
-        //Destroy(gameObject);
+        anim.SetBool("Death", true);
+        Destroy(gameObject, 1.2f);
+        
     }
 }
