@@ -24,13 +24,13 @@ public class enemyManager : MonoBehaviour
     void Update()
     {
         time += Time.deltaTime;
-
         if (time >= timer & gameManager.instance.puntuacion >= 1000)
         {
             Vector3 posicion = new Vector3(Random.Range(-limitX, limitX), Random.Range(-limitY, limitY));
             Vector3 rotacion = new Vector3(0, 0, 0);
             GameObject temp = Instantiate(spawner, posicion, Quaternion.Euler(rotacion));
             time = 0;
+            gameManager.instance.nEnemy += 1;
 
         }
     }

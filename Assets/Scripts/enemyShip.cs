@@ -14,6 +14,7 @@ public class enemyShip : MonoBehaviour
     public float speed_max;
     Rigidbody2D rb;
     Animator anim;
+    CapsuleCollider2D collider;
 
 
 
@@ -21,6 +22,7 @@ public class enemyShip : MonoBehaviour
     {
         anim = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
+        collider = GetComponent<CapsuleCollider2D>();
         Vector2 direccion = new Vector2(Random.Range(-1f, 1f), 0);
         direccion = direccion * Random.Range(speed_min, speed_max);
         rb.AddForce(direccion);
@@ -50,7 +52,9 @@ public class enemyShip : MonoBehaviour
     }
     public void Muerte()
     {
+        collider.enabled = false;
         gameManager.instance.puntuacion += 500;
+        gameManager.instance.pbomba += 500;
         anim.SetBool("Death", true);
         Destroy(gameObject, 1f);
     }

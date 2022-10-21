@@ -41,6 +41,7 @@ public class asteroidControler : MonoBehaviour
             temp2.transform.localScale = transform.localScale * 0.5f;
         }
         gameManager.instance.puntuacion += 100;
+        gameManager.instance.pbomba += 100;
         manager.asteroides -= 1;
         Destroy(gameObject);
     }

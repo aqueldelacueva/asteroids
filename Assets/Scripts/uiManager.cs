@@ -8,6 +8,11 @@ public class uiManager : MonoBehaviour
     public TextMeshProUGUI tiempo;
     public TextMeshProUGUI puntuacion;
     public TextMeshProUGUI vidas;
+    public TextMeshProUGUI bombas;
+    public GameObject gameOver;
+    public int puntos;
+    public int vida;
+    public int bombs;
     // Start is called before the first frame update
     void Start()
     {
@@ -17,7 +22,20 @@ public class uiManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(gameManager.instance.vidas <= 0)
+        { 
+            gameOver.SetActive(true);
+            Time.timeScale = 0;
+        }
+
         tiempo.text = Time.time.ToString("00.00");
+        puntos = gameManager.instance.puntuacion;
+        puntuacion.text = puntos.ToString();
+        vida = gameManager.instance.vidas;
+        vidas.text = vida.ToString();
+
+        bombs = bomb.instance.nbombas;
+        bombas.text = bombs.ToString();
 
     }
 }
