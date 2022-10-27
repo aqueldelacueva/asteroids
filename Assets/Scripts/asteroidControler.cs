@@ -9,6 +9,7 @@ public class asteroidControler : MonoBehaviour
     public float speed_max;
     Rigidbody2D rb;
     public asteroidManager manager;
+    public GameObject particulasMuerte;
     
     void Start()
     {
@@ -25,6 +26,7 @@ public class asteroidControler : MonoBehaviour
     {
         
     }
+
 
     //Creamos la separacion de asteroides al dispararles
     public void Muerte()
@@ -43,6 +45,8 @@ public class asteroidControler : MonoBehaviour
         gameManager.instance.puntuacion += 100;
         gameManager.instance.pbomba += 100;
         manager.asteroides -= 1;
+        GameObject tempas = Instantiate(particulasMuerte, transform.position, transform.rotation);
+        Destroy(tempas, 0.5f);
         Destroy(gameObject);
     }
     private void OnTriggerEnter2D(Collider2D collision)

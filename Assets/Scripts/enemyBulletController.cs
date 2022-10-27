@@ -5,7 +5,7 @@ using UnityEngine;
 public class enemyBulletController : MonoBehaviour
 {
 
-    public float speed = 10;
+    public float speed = 300;
     Rigidbody2D rb;
 
     void Start()

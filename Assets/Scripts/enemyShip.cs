@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class enemyShip : MonoBehaviour
 {
-    public float timer = 2f;
+    public float timer = 0.5f;
     public float time = 0;
     public float speed = 10;
     public GameObject Laser;

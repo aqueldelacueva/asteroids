@@ -154,7 +154,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 043125ecb891fe4458d6c31f5442c8bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timer: 5
+  timer: 0.5
   time: 0
   speed: 100
   Laser: {fileID: 5172590970412327514, guid: e3a58404e524a5a4ba7047a505be2fb2, type: 3}

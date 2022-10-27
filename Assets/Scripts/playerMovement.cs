@@ -37,7 +37,7 @@ public class playerMovement : MonoBehaviour
         collider = GetComponent<CircleCollider2D>();
     }
 
-    
+
     void Update()
     {
         if (muerte)
@@ -66,11 +66,18 @@ public class playerMovement : MonoBehaviour
         transform.eulerAngles += new Vector3(0, 0, horizontal * rotationSpeed * Time.deltaTime);
 
         //Disparo del laser
-        if (Input.GetButtonDown("Jump"))
+        if (muerte) 
         {
+
+        }
+        else {
+            if (Input.GetButtonDown("Jump")) 
+                  {
+        
             GameObject temp = Instantiate(Laser, Trigger.transform.position, transform.rotation);
             Destroy(temp, laserdestroy);
-        }
+                  }
+               }
     }
 
     public void Muerte()
@@ -95,6 +102,7 @@ public class playerMovement : MonoBehaviour
         muerte = true;
         anim.SetBool("Death", true);
         collider.enabled = false;
+        
         yield return new WaitForSeconds(1.5f);
 
         gameManager.instance.vidas -= 1;
