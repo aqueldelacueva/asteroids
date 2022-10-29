@@ -9,6 +9,7 @@ public class uiManager : MonoBehaviour
     public TextMeshProUGUI puntuacion;
     public TextMeshProUGUI vidas;
     public TextMeshProUGUI bombas;
+    public GameObject E;
     public GameObject gameOver;
     public int puntos;
     public int vida;
@@ -26,6 +27,14 @@ public class uiManager : MonoBehaviour
         { 
             gameOver.SetActive(true);
             Time.timeScale = 0;
+        }
+        if(gameManager.instance.nbombas > 0)
+        {
+            E.SetActive(true);
+        }
+        else
+        {
+            E.SetActive(false);
         }
 
         tiempo.text = Time.time.ToString("00.00");
